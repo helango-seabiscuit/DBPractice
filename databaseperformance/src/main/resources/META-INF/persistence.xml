@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+             xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+    <persistence-unit name="MyPU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>com.hemalatha.db.performance.model.Post</class>
+        <class>com.hemalatha.db.performance.model.Book</class>
+        <class>com.hemalatha.db.performance.model.Review</class>
+        <class>com.hemalatha.db.performance.model.Author</class>
+        <class>com.hemalatha.db.performance.model.Person</class>
+        <class>com.hemalatha.db.performance.model.Dog</class>
+        <class>com.hemalatha.db.performance.model.PersonDog</class>
+        <class>com.hemalatha.db.performance.model.Cellular</class>
+        <class>com.hemalatha.db.performance.model.Cow</class>
+        <class>com.hemalatha.db.performance.model.CowId</class>
+        <class>com.hemalatha.db.performance.model.DogHouse</class>
+        <class>com.hemalatha.db.performance.model.DogHouseB</class>
+        <class>com.hemalatha.db.performance.model.hierarchy.single.Car</class>
+        <class>com.hemalatha.db.performance.model.hierarchy.single.Motorbike</class>
+        <class>com.hemalatha.db.performance.model.hierarchy.joined.Employee</class>
+        <class>com.hemalatha.db.performance.model.hierarchy.joined.FullTimeEmployee</class>
+        <class>com.hemalatha.db.performance.model.hierarchy.joined.ContractEmployee</class>
+        <class>com.hemalatha.db.performance.model.hierarchy.tableperclass.Hershleys</class>
+        <class>com.hemalatha.db.performance.model.hierarchy.tableperclass.Kitkat</class>
+        <class>com.hemalatha.db.performance.model.hierarchy.tableperclass.Chocolate</class>
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
+            <!--<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/high_performance_java_persistence" />-->
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/db_schema_gen_test" />
+            <property name="javax.persistence.jdbc.user" value="ns" />
+            <property name="javax.persistence.jdbc.password" value="ns" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+
+
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+            <!--<property name="javax.persistence.schema-generation.create-source" value="script"/>-->
+            <!--<property name="javax.persistence.schema-generation.create-script-source" value="META-INF/create.sql"/>-->
+            <!--<property name="javax.persistence.schema-generation.drop-source" value="script"/>-->
+            <!--<property name="javax.persistence.schema-generation.drop-script-source" value="META-INF/drop.sql"/>-->
+            <!--<property name="javax.persistence.sql-load-script-source" value="META-INF/data.sql"/>-->
+        </properties>
+    </persistence-unit>
+
+
+    <persistence-unit name="MyPGPU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <class>com.hemalatha.db.performance.model.OnlineCourse</class>
+        <class>com.hemalatha.db.performance.model.collectionmapping.Employee</class>
+        <class>com.hemalatha.db.performance.model.collectionmapping.Department</class>
+        <class>com.hemalatha.db.performance.model.collectionmapping.EmployeeInfo</class>
+        <class>com.hemalatha.db.performance.model.collectionmapping.PrintQueue</class>
+        <class>com.hemalatha.db.performance.model.collectionmapping.PrintJob</class>
+        <class>com.hemalatha.db.performance.model.collectionmapping.Phone</class>
+        <class>com.hemalatha.db.performance.model.collectionmapping.ContactInfo</class>
+        <class>com.hemalatha.db.performance.model.collectionmapping.DepartmentId</class>
+        <class>com.hemalatha.db.performance.model.collectionmapping.Project</class>
+        <!--<class>com.hemalatha.db.performance.model.collectionmapping.EmbeddableKey</class>-->
+        <!--<class>com.hemalatha.db.performance.model.collectionmapping.EmbeddableValue</class>-->
+        <class>com.hemalatha.db.performance.model.Book</class>
+        <class>com.hemalatha.db.performance.model.Review</class>
+        <class>com.hemalatha.db.performance.model.Author</class>
+		<class>com.hemalatha.db.performance.model.Post</class>
+		<class>com.hemalatha.db.performance.model.Person</class>
+		<class>com.hemalatha.db.performance.model.Dog</class>
+		<class>com.hemalatha.db.performance.model.PersonDog</class>
+		<class>com.hemalatha.db.performance.model.Cellular</class>
+		<class>com.hemalatha.db.performance.model.Cow</class>
+		<class>com.hemalatha.db.performance.model.CowId</class>
+		<class>com.hemalatha.db.performance.model.DogHouse</class>
+		<class>com.hemalatha.db.performance.model.DogHouseB</class>
+		<class>com.hemalatha.db.performance.model.hierarchy.single.Car</class>
+		<class>com.hemalatha.db.performance.model.hierarchy.single.Motorbike</class>
+		<!--<class>com.hemalatha.db.performance.model.hierarchy.joined.Employee</class>-->
+		<!--<class>com.hemalatha.db.performance.model.hierarchy.joined.FullTimeEmployee</class>-->
+		<!--<class>com.hemalatha.db.performance.model.hierarchy.joined.ContractEmployee</class>-->
+		<class>com.hemalatha.db.performance.model.hierarchy.tableperclass.Hershleys</class>
+		<class>com.hemalatha.db.performance.model.hierarchy.tableperclass.Kitkat</class>
+		<class>com.hemalatha.db.performance.model.hierarchy.tableperclass.Chocolate</class>
+
+
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+            <!--<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/high_performance_java_persistence" />-->
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/test" />
+            <property name="javax.persistence.jdbc.user" value="helangovan" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory" />
+            <property name="cache.use_second_level_cache" value="true"/>
+            <!--<property name="javax.persistence.schema-generation.create-script-source" value="META-INF/create.sql"/>-->
+
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+            <!--<property name="javax.persistence.sql-load-script-source" value="META-INF/data.sql"/>-->
+            <!--<property name="javax.persistence.schema-generation.create-source" value="script"/>-->
+            <!--<property name="javax.persistence.schema-generation.drop-source" value="script"/>-->
+            <!--<property name="javax.persistence.schema-generation.drop-script-source" value="META-INF/drop.sql"/>-->
+        </properties>
+    </persistence-unit>
+	<persistence-unit name="PGCollection" transaction-type="RESOURCE_LOCAL">
+
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+		<class>com.hemalatha.db.performance.model.practicethrow.EmployeeModel</class>
+		<class>com.hemalatha.db.performance.model.practicethrow.PrintQueue</class>
+		<class>com.hemalatha.db.performance.model.practicethrow.PrintJob</class>
+		<class>com.hemalatha.db.performance.model.practicethrow.DepartmentModel</class>
+		<class>com.hemalatha.db.performance.model.practicethrow.Student</class>
+		<class>com.hemalatha.db.performance.model.practicethrow.StudentInfo</class>
+		<class>com.hemalatha.db.performance.model.practicethrow.Course</class>
+		<class>com.hemalatha.db.performance.model.practicethrow.Instructor</class>
+		<class>com.hemalatha.db.performance.model.practicethrow.throwsoon.PersonDetails</class>
+		<class>com.hemalatha.db.performance.model.practicethrow.throwsoon.Location</class>
+
+
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<!--<shared-cache-mode>DISABLE_SELECTIVE</shared-cache-mode>-->
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/test" />
+			<property name="javax.persistence.jdbc.user" value="helangovan" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory" />
+			<property name="cache.use_second_level_cache" value="true"/>
+			<!--<property name="javax.persistence.validation.group.pre-remove" value="Remove"/>-->
+
+			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+			<property name="javax.persistence.schema-generation.scripts.action" value="drop-and-create"/>
+			<property name="javax.persistence.schema-generation.scripts.create-target" value="file:///Users/helangovan/tmp/create.ddl"/>
+			<property name="javax.persistence.schema-generation.scripts.drop-target" value="file:///Users/helangovan/tmp/drop.ddl"/>
+
+
+		</properties>
+	</persistence-unit>
+
+
+	<persistence-unit name="OrderAppln" transaction-type="RESOURCE_LOCAL">
+
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+		<class>com.hemalatha.db.application.order.entity.CustomerOrder</class>
+		<class>com.hemalatha.db.application.order.entity.LineItem</class>
+		<class>com.hemalatha.db.application.order.entity.Part</class>
+		<class>com.hemalatha.db.application.order.entity.Vendor</class>
+		<class>com.hemalatha.db.application.order.entity.VendorPart</class>
+
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<!--<shared-cache-mode>DISABLE_SELECTIVE</shared-cache-mode>-->
+		<!--<validation-mode></validation-mode>-->
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/motororder" />
+			<property name="javax.persistence.jdbc.user" value="helangovan" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory" />
+			<property name="cache.use_second_level_cache" value="true"/>
+
+			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+			<!--<property name="javax.persistence.schema-generation.scripts.action" value="drop-and-create"/>-->
+		</properties>
+	</persistence-unit>
+
+	<persistence-unit name="RosterAppln" transaction-type="RESOURCE_LOCAL">
+
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+		<class>com.hemalatha.db.application.roster.entity.League</class>
+		<class>com.hemalatha.db.application.roster.entity.Player</class>
+		<class>com.hemalatha.db.application.roster.entity.Team</class>
+		<class>com.hemalatha.db.application.roster.entity.SummerLeague</class>
+		<class>com.hemalatha.db.application.roster.entity.WinterLeague</class>
+
+
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<!--<shared-cache-mode>DISABLE_SELECTIVE</shared-cache-mode>-->
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/roster" />
+			<property name="javax.persistence.jdbc.user" value="helangovan" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory" />
+			<property name="cache.use_second_level_cache" value="true"/>
+
+			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+			<!--<property name="javax.persistence.schema-generation.scripts.action" value="drop-and-create"/>-->
+		</properties>
+	</persistence-unit>
+
+
+	<persistence-unit name="ContactAppln" transaction-type="RESOURCE_LOCAL">
+
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+		<class>com.hemalatha.db.application.addressbook.entity.Contact</class>
+
+
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<!--<shared-cache-mode>DISABLE_SELECTIVE</shared-cache-mode>-->
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/contact" />
+			<property name="javax.persistence.jdbc.user" value="helangovan" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory" />
+			<property name="cache.use_second_level_cache" value="true"/>
+			<property name="javax.persistence.validation.mode" value="AUTO" />
+			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+			<!--<property name="javax.persistence.schema-generation.scripts.action" value="drop-and-create"/>-->
+		</properties>
+	</persistence-unit>
+</persistence>
