@@ -115,8 +115,11 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 		<class>com.hemalatha.db.performance.model.practicethrow.StudentInfo</class>
 		<class>com.hemalatha.db.performance.model.practicethrow.Course</class>
 		<class>com.hemalatha.db.performance.model.practicethrow.Instructor</class>
-		<class>com.hemalatha.db.performance.model.practicethrow.throwsoon.PersonDetails</class>
-		<class>com.hemalatha.db.performance.model.practicethrow.throwsoon.Location</class>
+		<class>com.hemalatha.db.performance.model.practicethrow.throwsoon.Invoice</class>
+		<class>com.hemalatha.db.performance.model.practicethrow.throwsoon.Line</class>
+		<class>com.hemalatha.db.performance.model.practicethrow.throwsoon.Tax</class>
+		<class>com.hemalatha.db.performance.model.practicethrow.throwsoon.Book</class>
+		<class>com.hemalatha.db.performance.model.practicethrow.throwsoon.Publisher</class>
 
 
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>

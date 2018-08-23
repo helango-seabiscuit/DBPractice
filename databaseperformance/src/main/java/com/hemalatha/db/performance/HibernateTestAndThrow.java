@@ -4,8 +4,11 @@ package com.hemalatha.db.performance;
 import com.hemalatha.db.performance.model.collectionmapping.Department;
 import com.hemalatha.db.performance.model.collectionmapping.Employee;
 import com.hemalatha.db.performance.model.practicethrow.Student;
-import com.hemalatha.db.performance.model.practicethrow.throwsoon.Location;
-import com.hemalatha.db.performance.model.practicethrow.throwsoon.PersonDetails;
+import com.hemalatha.db.performance.model.practicethrow.throwsoon.Book;
+import com.hemalatha.db.performance.model.practicethrow.throwsoon.Invoice;
+import com.hemalatha.db.performance.model.practicethrow.throwsoon.Line;
+import com.hemalatha.db.performance.model.practicethrow.throwsoon.Publisher;
+import com.hemalatha.db.performance.model.practicethrow.throwsoon.Tax;
 
 
 import javax.persistence.Cache;
@@ -15,6 +18,8 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.LockModeType;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceUnitUtil;
+import javax.persistence.PersistenceUtil;
 import javax.persistence.PessimisticLockScope;
 import javax.persistence.Tuple;
 import javax.persistence.TypedQuery;
@@ -27,6 +32,7 @@ import javax.persistence.metamodel.Metamodel;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -79,28 +85,36 @@ public class HibernateTestAndThrow {
 
 		//validateBean();
 		manager.getTransaction().begin();
-		PersonDetails personDetails = new PersonDetails();
-		personDetails.setId(1);
-		Location location = new Location("chennai","tnagar");
-		Location location2 = new Location("coimbatore","saibaba");
-		Location location3 = new Location("madurai","tvkoil");
-		List<Location> locationList = new ArrayList<>();
-		locationList.add(location);
-		locationList.add(location2);
-		locationList.add(location3);
-		personDetails.setLocations(locationList);
-		manager.persist(personDetails);
-		manager.getTransaction().commit();
-		manager.getTransaction().begin();
+		Invoice invoice = new Invoice("An invoice for John Smith");
+		manager.persist(invoice);
+
+		manager.persist(new Line("1 pen - 5€", invoice));
+		manager.persist(new Tax("21%", invoice));
 
 		manager.getTransaction().commit();
 		manager.clear();
+		Invoice res = manager.find(Invoice.class,1);
+		System.out.println(emf.getPersistenceUnitUtil().isLoaded(res,"lines"));
+		System.out.println(emf.getPersistenceUnitUtil().isLoaded(res,"taxes"));
+
+		//manager.clear();
+	//	Invoice res1 = manager.find(Invoice.class,1);
+		manager.refresh(res);
+		System.out.println(emf.getPersistenceUnitUtil().isLoaded(res,"lines"));
+		System.out.println(emf.getPersistenceUnitUtil().isLoaded(res,"taxes"));
+		//manager.close();
 
 		manager.getTransaction().begin();
-		PersonDetails d = manager.find(PersonDetails.class,personDetails.getId());
-		d.getLocations().add(new Location("trichy","periyarnagar"));
+		Publisher p = new Publisher();
+		p.setCode("pub_04");
+		manager.persist(p);
+		Book book = new Book();
+		book.setPublishingDate(LocalDate.now());
+		book.setTitle("Java Performance");
+		book.setPublisher(p);
+		manager.persist(book);
 		manager.getTransaction().commit();
-		manager.close();
+		Book b = manager.find(Book.class,book.getId());
 		emf.close();
 
 	}
